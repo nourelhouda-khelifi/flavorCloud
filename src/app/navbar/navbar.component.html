@@ -1,0 +1,72 @@
+<div class="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200">
+  <div class="container py-3 sm:py-0">
+    <div class="flex justify-between items-center mx-6">
+      <!-- Logo Section -->
+      <div>
+        <a routerLink="/" class="font-bold text-2xl sm:text-3xl flex gap-2">
+          <img [src]="logo" alt="Logo" class="w-10" />
+          Foodie
+        </a>
+      </div>
+
+      <!-- Right Section (Menu Links and Dark Mode Toggle) -->
+      <div class="flex items-center gap-4">
+        <!-- Menu Links -->
+        <ul class="hidden sm:flex items-center gap-4">
+          <li>
+            <!-- Dark Mode Toggle -->
+            <app-dark-mode></app-dark-mode>
+          </li>
+          <li>
+            <a
+              routerLink="/home"
+              class="inline-block py-4 px-4 hover:text-yellow-500"
+            >
+              Home
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/services"
+              class="inline-block py-4 px-4 hover:text-yellow-500"
+            >
+              Services
+            </a>
+          </li>
+          <li>
+            <a
+              routerLink="/plats"
+              class="inline-block py-4 px-4 hover:text-yellow-500"
+            >
+              Dishes
+            </a>
+          </li>
+          <li>
+            <a
+              (click)="onLogout()"
+              class="inline-block py-4 px-4 hover:text-yellow-500"
+            >
+              deconnexion
+            </a>
+          </li>
+          <li>
+            <button 
+              class="bg-gradient-to-r from-primary to-secondary from-yellow-400 to-yellow-500 text-white dark:text-gray-100 py-1 px-4 rounded-full flex items-center gap-3 hover:scale-105 hover:text-white-500 duration-200"
+              [routerLink]="'/order'"
+            >
+              <span class="text-black dark:text-gray-100">Order</span>
+              <i
+                class="fa-solid fa-cart-shopping  text-black  dark:text-white  drop-shadow-sm cursor-pointer"
+                style="color: black;"
+              ></i>
+            </button>
+          </li>
+          
+        </ul>
+
+        <!-- Order Button -->
+        
+      </div>
+    </div>
+  </div>
+</div>

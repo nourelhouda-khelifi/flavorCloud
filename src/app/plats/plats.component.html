@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="min-h-screen bg-gray-100 p-6 dark:bg-gray-950 dark:text-white duration-200 relative">
+    <h1 class="text-3xl font-bold text-center mb-6">Our Dishes</h1>
+    <button   [routerLink]="'/adddish'"
+    class=" bg-gradient-to-r from-gray-500 to-gray-600 text-white font-bold py-2 px-4 rounded dark:text-gray-100  rounded flex items-center absolute top-4 right-4 mt-2 mr-2 mx-auto px-auto  gap-2 hover:scale-105 hover:text-white duration-200">
+      Add Dish<i class="fa-solid fa-plus"></i>
+     </button>
+  
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6  ">
+      <div
+        *ngFor="let plat of plats"
+        class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition duration-300 dark:bg-gray-600 dark:text-white duration-200   relative"
+      >
+      <!-- Delete Button -->
+       <!-- Delete Button -->
+        <button (click)="deletePlat(plat.id)" class="text-gray-600 dark:text-gray-100 rounded flex items-center absolute top-4 right-4 mt-2 mr-2 mx-auto px-auto gap-2 hover:scale-105 hover:text-white duration-200">
+          <i class="fa-solid fa-delete-left fa-xl"></i>
+        </button>
+      <img
+        [src]="plat.image"
+        [alt]="plat.name"
+        class="w-[150px]  h-[150px] mx-auto rotate-90 object-cover dark:bg-gray-600 dark:text-white duration-200 relative"
+      />
+        <h2 class="text-xl font-semibold text-gray-800 dark:bg-gray-600 dark:text-white duration-200 relative">{{ plat.name }}</h2>
+        <p class="text-gray-600 dark:bg-gray-600 dark:text-white duration-200 relative">{{ plat.description }}</p>
+        <div class="flex items-center gap-2">
+            <!-- Details Button -->
+            <a [routerLink]="['/service', plat.id]" class="bg-gradient-to-r from-yellow-500 to-yellow-600 my-1 text-white dark:text-gray-100 py-1 px-4 rounded-full flex items-center gap-2 hover:scale-105 hover:text-white duration-200">
+               <i class="fa-solid fa-circle-info"></i>
+            </a>
+          
+            <!-- Update Button -->
+            <a [routerLink]="['/update', plat.id]" class="bg-gradient-to-r from-gray-400 to-gray-500 text-white dark:text-gray-100 py-1 px-4 rounded-full flex items-center gap-2 hover:scale-105 hover:text-white duration-200">
+              <i class="fa-solid fa-pen-to-square"></i>
+           </a>
+           
+          
+            
+          </div>
+          
+    </div>
+      </div>
+      
+    </div>
+  <app-footer></app-footer>
+  

@@ -1,0 +1,85 @@
+<div [class.filter-blur]="showModal">
+  <!-- Your main page content goes here -->
+  <app-plats></app-plats>
+</div>
+
+<div class="bg-black bg-opacity-40 fixed inset-0 flex items-center justify-center">
+  <div *ngIf="showModal" class="bg-white backdrop-blur-sm z-50 rounded-lg">
+    <form (ngSubmit)="onSubmit()" class="p-8">
+      <h2 class="text-2xl font-bold text-center mb-4 text-gray-800">Add Dish</h2>
+
+      <!-- Dish Image -->
+      <div class="mb-4">
+        <label for="image" class="block text-gray-700 font-medium mb-2">Dish Image</label>
+        <input
+          type="file"
+          id="image"
+          name="image"
+          (change)="onImageChange($event)"
+          class="w-full border border-gray-300 rounded-lg p-2 bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          accept="image/*"
+          required
+        />
+      </div>
+
+      <!-- Name -->
+      <div class="mb-4">
+        <label for="name" class="block text-gray-700 font-medium mb-2">Dish Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          [(ngModel)]="dish.name"
+          class="w-full border border-gray-300 rounded-lg p-2 bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          placeholder="Enter the dish name"
+          required
+        />
+      </div>
+
+      <!-- Description -->
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700 font-medium mb-2">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          [(ngModel)]="dish.description"
+          class="w-full border border-gray-300 rounded-lg p-2 bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          rows="4"
+          placeholder="Enter the dish description"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Price -->
+      <div class="mb-4">
+        <label for="price" class="block text-gray-700 font-medium mb-2">Price</label>
+        <input
+          type="number"
+          id="price"
+          name="price"
+          [(ngModel)]="dish.price"
+          class="w-full border border-gray-300 rounded-lg p-2 bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+          placeholder="Enter the price"
+          required
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-center gap-10">
+        <button
+          type="submit"
+          class="bg-yellow-500 text-white py-2 px-6 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+        >
+          Submit
+        </button>
+        <button
+          type="button"
+          (click)="closeModal()"
+          class="bg-gray-500 text-white py-2 px-6 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-400"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

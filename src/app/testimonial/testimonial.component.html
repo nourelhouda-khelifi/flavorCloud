@@ -1,0 +1,57 @@
+<div class="py-10 dark:bg-gray-950 dark:text-white duration-200 relative " data-aos="fade-up" data-aos-duration="300">
+  <div class="container dark:bg-gray-950 dark:text-white duration-200 relative  ">
+    <!-- Title Section -->
+    <div class="text-center mb-20 max-w-[400px] mx-auto  ">
+      <p class="text-sm bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary ">
+        What our customers say
+      </p>
+      <h1 class="text-3xl font-bold ">Testimonial</h1>
+      <p class="text-xs text-gray-400">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis delectus architecto error nesciunt.
+      </p>
+    </div>
+
+    <!-- Testimonial Slider Section -->
+    <div class="grid grid-cols-1 max-w-[600px] mx-auto gap-6" data-aos="zoom-in" data-aos-duration="300">
+      <ngx-slick-carousel
+        class="relative"
+        [config]="{
+          dots: true,
+          arrows: false,
+          infinite: true,
+          speed: 500,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          cssEase: 'linear',
+          pauseOnHover: true,
+          pauseOnFocus: true
+        }"
+      >
+        <!-- Testimonial Card -->
+        <div *ngFor="let data of testimonialData" class="my-6">
+          <div class="flex flex-col justify-center items-center gap-4 text-center shadow-lg p-6 rounded-xl dark:bg-gray-800 bg-primary/10 relative overflow-hidden">
+            <!-- Testimonial Image -->
+            <img
+              class="w-20 h-20 rounded-full object-cover border-4 border-white dark:border-gray-700 z-10"
+              [src]="data.img"
+              alt="testimonial image"
+            />
+            <!-- Testimonial Text -->
+            <p class="text-gray-500 text-sm z-10">{{ data.text }}</p>
+            <h1 class="text-xl font-bold z-10">{{ data.name }}</h1>
+            <!-- Decorative Quote Symbol -->
+            <p class="text-black/20 text-9xl font-serif absolute top-2 right-2 pointer-events-none">
+              ,,
+            </p>
+            <!-- Background Blur for Style -->
+            <div class="absolute inset-0 bg-gray-200/50 dark:bg-gray-700/30 rounded-xl -z-1"></div>
+          </div>
+        </div>
+       
+      </ngx-slick-carousel>
+      
+    </div>
+  </div>
+</div>

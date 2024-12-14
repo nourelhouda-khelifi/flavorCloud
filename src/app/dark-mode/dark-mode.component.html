@@ -1,0 +1,20 @@
+<div class="relative">
+    <!-- Light Mode Icon -->
+    <img
+      *ngIf="theme === 'light'"
+      src="assets/website/light-mode-button.png"
+      alt="Switch to Dark Mode"
+      (click)="toggleTheme()"
+      class="w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300"
+    />
+    
+    <!-- Dark Mode Icon -->
+    <img
+      *ngIf="theme === 'dark'"
+      src="assets/website/dark-mode-button.png"
+      alt="Switch to Light Mode"
+      (click)="toggleTheme()"
+      class="w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300"
+    />
+  </div>
+  

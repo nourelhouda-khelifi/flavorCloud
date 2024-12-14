@@ -1,0 +1,80 @@
+<div
+  class="min-h-[550px] sm:min-h-[700px] bg-gray-100 flex justify-center items-center dark:bg-gray-950 dark:text-white duration-200 relative"
+>
+  <!-- Background Shape with pointer-events disabled -->
+  <div class="h-[700px] w-[700px] bg-primary/40 absolute -top-1/2 right-0 rounded-3xl rotate-45 -z-9 pointer-events-none"></div>
+
+  <div class="container pb-8 sm:pb-0">
+    <div class="grid grid-cols-1 sm:grid-cols-2">
+      <!-- Text Content Section -->
+      <div
+        data-aos-once="true"
+        class="flex flex-col justify-center gap-9 pt-12 lg:pr-10 sm:pt-0 text-center mx-auto sm:text-left order-2 sm:order-1"
+      >
+        <h1
+          data-aos="zoom-out"
+          data-aos-duration="500"
+          data-aos-once="true"
+          class="text-4xl lg:text-6xl font-bold"
+        >
+          {{ title }}
+        </h1>
+        <p
+          data-aos="slide-up"
+          data-aos-duration="500"
+          data-aos-delay="100"
+          class="text-sm"
+        >
+          {{ description }}
+        </p>
+        <div
+          data-aos="slide-up"
+          data-aos-duration="500"
+          data-aos-delay="200"
+          
+        >
+          <button
+            (click)="handleOrderPopup()"
+            class="bg-gradient-to-r from-yellow-300 to-yellow-500 text-white px-6 py-3  rounded-full hover:scale-105 duration-200"
+          >
+            Order Now
+          </button>
+        </div>
+
+        <!-- Product List Section -->
+        <div class="flex justify-center lg:justify-start gap-6 py-2 lg:gap-14 bg-white text-black dark:bg-black dark:text-slate-50 rounded-3xl duration-200">
+          <div
+            *ngFor="let item of imageList"
+            (click)="updateImage(item)"
+            class="flex flex-col lg:flex-row items-center gap-1 cursor-pointer"
+          >
+            <img
+              data-aos="zoom-in"
+              data-aos-once="true"
+              [src]="item.img"
+              alt="watch image"
+              class="w-[100px] h-[100px] object-contain inline-block hover:scale-110 duration-200 "
+            />
+            <div class="flex flex-col items-center justify-center lg:items-start">
+              <p class="lg:text-lg font-bold">${{ item.price }}</p>
+              <p class="text-sm">{{ item.tag }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image Section -->
+      <div class="min-h-[450px] sm:min-h-[450px] flex justify-center items-center relative order-1 sm:order-2">
+        <div class="h-[300px] sm:h-[450px] overflow-hidden flex justify-center items-center">
+          <img
+            data-aos="zoom-in"
+            data-aos-once="true"
+            [src]="selectedImage"
+            alt="watch image"
+            class="w-full h-full sm:h-full sm:w-full m:scale-125 object-contain mx-auto spin "
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
